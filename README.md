@@ -4,28 +4,40 @@
 
 Fabien just came back from a meeting with an incubator and told them we have a platform “up and running” to monitor people's activities and control the budget for their startups !
 
-He is confident to be able to sell our engineering team on a few promising startups working on the incubator if we make them use the tool.
+All others developers are busy and we need you to deliver the app for tomorrow.
+Some bugs are left and we need you to fix those. Don't spend to much time on it.
 
-Fab is saying we could sell them between 100K€ to 200K€ per year and could also take some shares of a few startups.
-But all developers have the Covid and you are the only one remaining. Let’s try to make the platform ready for the demo the day after !
+We need you to follow these steps to understand the app and to fix the bug : 
+ - Sign up to the app
+ - Create at least 2 others users on people page ( not with signup ) 
+ - Edit these profiles and add aditional information 
+ - Create a project
+ - Input some information about the project
+ - Input some activities to track your work in the good 
+  
+Then, see what happens in the app and fix the bug you found doing that.
 
+## Then
 Time to be creative, and efficient. Do what you think would be the best for your product under a short period.
-The goal is to fix at least 3 bugs and implement 1 feature than could help us sell the platform
+
+### The goal is to fix at least 3 bugs and implement 1 feature than could help us sell the platform
 
 ## Setup api
-
--Create free mongo database on https://www.mongodb.com/atlas/database and get mongo uri
 
 - cd api
 - Run `npm i`
 - Run `npm run dev`
-- Set project variables in `.env` (create new if not found) and `config.js` file
-- Run cmd/initData in order to be ready to begin
 
 ## Setup app
 
 - cd app
 - Run `npm i`
 - Run `npm run dev`
-- Set variables such as `apiURL` in `config.js` file
-- Login to new user created via script
+
+## Finally
+
+Send us the project and answer to those simple questions : 
+- What bugs did you find ? How did you solve these and why ? 
+- Which feature did you develop and why ? 
+- Do you have any feedback about the code / architecture of the project and what was the difficulty you encountered while doing it ? 
+
