@@ -20,7 +20,7 @@ Then, see what happens in the app and fix the bug you found doing that.
 ## Then
 Time to be creative, and efficient. Do what you think would be the best for your product under a short period.
 
-### The goal is to fix at least 3 bugs and implement 1 feature than could help us sell the platform
+### The goal is to fix at least 3 bugs and implement 1 quick win feature than could help us sell the platform
 
 ## Setup api
 
