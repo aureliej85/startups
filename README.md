@@ -13,7 +13,7 @@ We need you to follow these steps to understand the app and to fix the bug :
  - Edit these profiles and add aditional information 
  - Create a project
  - Input some information about the project
- - Input some activities to track your work in the good 
+ - Input some activities to track your work in the good project
   
 Then, see what happens in the app and fix the bug you found doing that.
 
