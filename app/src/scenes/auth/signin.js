@@ -47,12 +47,12 @@ export default () => {
                     value={values.username}
                     onChange={handleChange}
                   />
-                  <label className="peer-focus:text-[#116eee]" htmlFor="email">
-                    E-mail address
+                  <label className="peer-focus:text-[#116eee]" htmlFor="username">
+                    Username
                   </label>
                 </div>
                 {/* Error */}
-                <p className="text-[12px] text-[#FD3131]">{errors.email}</p>
+                <p className="text-[12px] text-[#FD3131]">{errors.username}</p>
               </div>
               <div className="mb-[25px]">
                 <div className="flex flex-col-reverse">
