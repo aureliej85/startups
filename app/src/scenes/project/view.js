@@ -36,6 +36,15 @@ export default function ProjectView() {
   
   }, [copied]);
 
+
+  const handleEmail = () => {
+    const subject = "Project info";
+    const emailBody = `Name: ${project.name} \nDescription: ${project.description} \nObjective: ${project.objective}\nOrganisation: ${project.organisation} \nBudget max/month: ${project.budget_max_monthly} \nStatus: ${project.status}\nLead: ${project.lead}`;
+    const mailtoLink = `mailto:?subject=${subject}&body=${emailBody}`;
+    window.location.href = mailtoLink;
+  };
+
+
   if (!project) return <Loader />;
 
   return (
@@ -47,6 +56,11 @@ export default function ProjectView() {
               <span className="text-[18px] text-[#212325] font-semibold">Project details</span>
             </div>
             <div className="flex items-center gap-2">
+            <button
+                onClick={handleEmail}
+                className="border !border-[#0560FD] text-[#0560FD] py-[7px] px-[20px] bg-[#FFFFFF] rounded-[16px]">
+                Send by email
+              </button>
               <button
                 onClick={() => history.push(`/project/edit/${id}`)}
                 className="border !border-[#0560FD] text-[#0560FD] py-[7px] px-[20px] bg-[#FFFFFF] rounded-[16px]">
