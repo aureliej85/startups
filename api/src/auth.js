@@ -25,13 +25,13 @@ class Auth {
   }
 
   async signin(req, res) {
-    let { password, username } = req.body;
-    username = (username || "").trim().toLowerCase();
+    let { password, name } = req.body;
+    name = (name || "").trim().toLowerCase();
 
-    if (!username || !password) return res.status(400).send({ ok: false, code: EMAIL_AND_PASSWORD_REQUIRED });
+    if (!name || !password) return res.status(400).send({ ok: false, code: EMAIL_AND_PASSWORD_REQUIRED });
 
     try {
-      const user = await this.model.findOne({ name: username });
+      const user = await this.model.findOne({ name: name });
       if (!user) return res.status(401).send({ ok: false, code: USER_NOT_EXISTS });
 
       const match = await user.comparePassword(password);
@@ -59,11 +59,11 @@ class Auth {
 
   async signup(req, res) {
     try {
-      const { password, username, organisation } = req.body;
+      const { password, name, organisation } = req.body;
 
       if (password && !validatePassword(password)) return res.status(200).send({ ok: false, user: null, code: PASSWORD_NOT_VALIDATED });
 
-      const user = await this.model.create({ name: username, organisation, password });
+      const user = await this.model.create({ name: name, organisation, password });
       const token = jwt.sign({ _id: user._id }, config.secret, { expiresIn: JWT_MAX_AGE });
       const opts = { maxAge: COOKIE_MAX_AGE, secure: config.ENVIRONMENT === "development" ? false : true, httpOnly: false };
       res.cookie("jwt", token, opts);

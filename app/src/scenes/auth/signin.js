@@ -21,7 +21,7 @@ export default () => {
 
       {user && <Redirect to="/" />}
       <Formik
-        initialValues={{ username: "", password: "" }}
+        initialValues={{ name: "", password: "" }}
         onSubmit={async (values, actions) => {
           try {
             const { user, token } = await api.post(`/user/signin`, values);
@@ -41,10 +41,10 @@ export default () => {
                   <Field
                     className="peer signInInputs "
                     validate={(v) => validator.isEmpty(v) && "This field is Required"}
-                    name="username"
+                    name="name"
                     type="text"
-                    id="username"
-                    value={values.username}
+                    id="name"
+                    value={values.name}
                     onChange={handleChange}
                   />
                   <label className="peer-focus:text-[#116eee]" htmlFor="username">
@@ -52,7 +52,7 @@ export default () => {
                   </label>
                 </div>
                 {/* Error */}
-                <p className="text-[12px] text-[#FD3131]">{errors.username}</p>
+                <p className="text-[12px] text-[#FD3131]">{errors.name}</p>
               </div>
               <div className="mb-[25px]">
                 <div className="flex flex-col-reverse">

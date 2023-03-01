@@ -18,6 +18,7 @@ export default function EditProject() {
     (async () => {
       const { data: u } = await api.get(`/project/${id}`);
       setProject(u);
+      console.log("project console log " + project);
     })();
   }, []);
 

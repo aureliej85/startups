@@ -25,6 +25,7 @@ export default function ProjectView() {
     (async () => {
       const { data: u } = await api.get(`/project/${id}`);
       setProject(u);
+      console.log("log project " + project?.name)
     })();
   }, []);
 
@@ -32,6 +33,7 @@ export default function ProjectView() {
     if (copied) {
       setTimeout(() => setCopied(false), 3000);
     }
+  
   }, [copied]);
 
   if (!project) return <Loader />;
@@ -46,7 +48,7 @@ export default function ProjectView() {
             </div>
             <div className="flex items-center gap-2">
               <button
-                onClick={() => history.push(`/project/edit/${project?._id}`)}
+                onClick={() => history.push(`/project/edit/${id}`)}
                 className="border !border-[#0560FD] text-[#0560FD] py-[7px] px-[20px] bg-[#FFFFFF] rounded-[16px]">
                 Edit
               </button>
@@ -70,7 +72,7 @@ const ProjectDetails = ({ project }) => {
               <div className="flex justify-between gap-2">
                 <div className="flex gap-20">
                   <span className="w-fit text-[20px] text-[#0C1024] font-bold">Nom du projet : </span>
-                  <span className="w-fit text-[20px] text-[#0C1024] font-bold">{project.name.toString()}</span>
+                  <span className="w-fit text-[20px] text-[#0C1024] font-bold">{project.name}</span>
                 </div>
                 <div className="flex flex-1 flex-column items-end gap-3">
                   <Links project={project} />

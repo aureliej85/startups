@@ -18,6 +18,8 @@ const NewList = () => {
       setUsers(data);
     })();
     getProjects();
+    console.log("projects")
+    console.table(projects)
   }, []);
 
   async function getProjects() {
@@ -87,6 +89,18 @@ const NewList = () => {
 
 const Create = () => {
   const [open, setOpen] = useState(false);
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    getProjects();
+    console.log("projects " + projects[0]?.organisation)
+    console.table(projects)
+  }, []);
+
+  async function getProjects() {
+    const res = await api.get("/project");
+    setProjects(res.data);
+  }
 
   const history = useHistory();
 
@@ -111,6 +125,7 @@ const Create = () => {
                   values.status = "active";
                   values.availability = "not available";
                   values.role = "ADMIN";
+                  values.organisation = projects[0]?.organisation;
                   const res = await api.post("/user", values);
                   if (!res.ok) throw res;
                   toast.success("Created!");
@@ -128,7 +143,7 @@ const Create = () => {
                     <div className="flex justify-between flex-wrap">
                       <div className="w-full md:w-[48%] mt-2">
                         <div className="text-[14px] text-[#212325] font-medium	">Name</div>
-                        <input className="projectsInput text-[14px] font-normal text-[#212325] rounded-[10px]" name="username" value={values.username} onChange={handleChange} />
+                        <input className="projectsInput text-[14px] font-normal text-[#212325] rounded-[10px]" name="name" value={values.name} onChange={handleChange} />
                       </div>
                       <div className="w-full md:w-[48%] mt-2">
                         <div className="text-[14px] text-[#212325] font-medium	">Email</div>
@@ -218,10 +233,10 @@ const UserCard = ({ hit, projects }) => {
       className="flex flex-col bg-white hover:-translate-y-1 transition duration-100 shadow-sm ease-in cursor-pointer  relative rounded-[16px] pb-4 overflow-hidden">
       <div className="relative flex items-start justify-center pt-6 pb-2">
         <div className="absolute top-0 left-0 w-full h-full z-10 overflow-hidden">
-          <img
+          {/* <img
             src={hit.banner.startsWith("https://www.gravatar.com/avatar") ? require("../../assets/banner-stud.png") : hit.banner}
             className="object-cover w-full h-full z-10 opacity-60 overflow-hidden"
-          />
+          /> */}
         </div>
         <div className="flex flex-col items-center z-20">
           <img src={hit.avatar} className="object-contain rounded-full w-20 h-20 " />

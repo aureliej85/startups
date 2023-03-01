@@ -1,4 +1,4 @@
-import "isomorphic-fetch";
+import fetch from "isomorphic-fetch";
 
 import { apiURL } from "../config";
 
@@ -29,6 +29,7 @@ class api {
         resolve(res);
       } catch (e) {
         reject(e);
+        console.log(path);
       }
     });
   }

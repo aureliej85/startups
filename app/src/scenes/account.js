@@ -49,7 +49,7 @@ export default () => {
               </div>
               <div className="w-full md:w-[48.5%]">
                 <div>Email</div>
-                <input className="projectsInput" value={values.email} />
+                <input className="projectsInput" name="email" value={values.email} onChange={(e) => setValues({ ...values, email: e.target.value})} />
               </div>
             </div>
             {/* second Row */}

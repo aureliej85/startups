@@ -24,7 +24,7 @@ const ProjectList = () => {
   useEffect(() => {
     const p = (projects || []).filter((p) => p.status === "active");
     setActiveProjects(p);
-  }, [projects]);
+  }, [projects], [activeProjects]);
 
   if (!projects || !activeProjects) return <Loader />;
 
