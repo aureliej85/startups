@@ -41,9 +41,9 @@ export default () => {
                   <Field
                     className="peer signInInputs "
                     validate={(v) => validator.isEmpty(v) && "This field is Required"}
-                    name="username"
+                    name="name"
                     type="text"
-                    id="username"
+                    id="name"
                     value={values.name}
                     onChange={handleChange}
                   />

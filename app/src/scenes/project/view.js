@@ -39,7 +39,7 @@ export default function ProjectView() {
 
   const handleEmail = () => {
     const subject = "Project info";
-    const emailBody = `Name: ${project.name} \nDescription: ${project.description} \nObjective: ${project.objective}\nOrganisation: ${project.organisation} \nBudget max/month: ${project.budget_max_monthly} \nStatus: ${project.status}\nLead: ${project.lead}`;
+    const emailBody = `Name: ${project.name}<br/>Description: ${project.description} <br/>Objective: ${project.objective}<br/>Organisation: ${project.organisation} <br/>Budget max/month: ${project.budget_max_monthly} <br/>Status: ${project.status}<br/>Lead: ${project.lead}`;
     const mailtoLink = `mailto:?subject=${subject}&body=${emailBody}`;
     window.location.href = mailtoLink;
   };

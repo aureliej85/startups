@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -23,7 +23,10 @@ export default () => {
   async function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    let body = values;
+    let body = {
+      ...user,
+      ...values,
+    };
     try {
       const responseData = await api.put(`/user/${user._id}`, body);
       toast.success("Updated!");
@@ -34,6 +37,11 @@ export default () => {
     }
     setIsLoading(false);
   }
+
+  useEffect(()=>{
+    console.log("user in account ");
+    console.table(user)
+  }, [])
 
   return (
     <div>

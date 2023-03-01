@@ -15,11 +15,16 @@ const NewList = () => {
   useEffect(() => {
     (async () => {
       const { data } = await api.get("/user");
+   
       setUsers(data);
     })();
     getProjects();
     console.log("projects")
     console.table(projects)
+    console.table(usersFiltered)
+    console.table(users)
+    
+  
   }, []);
 
   async function getProjects() {
